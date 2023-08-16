@@ -1,0 +1,115 @@
+/* App.css */
+
+/* ... (previous CSS) */
+
+/* Main container */
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  height: 100vh;
+  background-color: #f5f5f5;
+  padding: 10px;
+}
+
+/* Header */
+.header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 20px;
+}
+
+.logo {
+  width: 100px; /* Adjust the width as needed */
+  margin-right: 1400px;
+}
+
+.title-container {
+  text-align: center;
+}
+
+.title {
+  font-size: 22px;
+  margin: 0;
+}
+
+.subheader {
+  font-size: 14px;
+  margin: 5px 0;
+  color: #888;
+}
+
+/* Chat container */
+.chat-container {
+  width: 150%;
+  height: 300px;
+  max-width: 800px;
+  /* border: 1px solid #ccc; */
+  padding: 10px;
+  /* background-color: white; */
+  /* box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); */
+  margin-top: 20px;
+  margin-bottom: 50px;
+  overflow-y: auto;
+}
+
+/* Chat messages */
+.chat-message {
+  padding: 8px 10px;
+  margin: 5px;
+  border-radius: 8px;
+  display: flex;
+  align-items: center;
+}
+
+.user-icon::before {
+  content: '\1F464'; /* Unicode character for user icon (you can replace it with your preferred icon) */
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.assistant-icon::before {
+  content: '\1F9D1'; /* Unicode character for robot/assistant icon (you can replace it with your preferred icon) */
+  font-size: 20px;
+  margin-right: 5px;
+}
+
+.user {
+  background-color: #e6f7ff;
+}
+
+.assistant {
+  background-color: #f0f0f0;
+}
+
+/* User input */
+.user-input {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150%;
+  max-width: 800px;
+  margin-bottom: 10px;
+}
+
+input[type="text"] {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  border-radius: 4px;
+  padding: 8px 15px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #0056b3;
+}
