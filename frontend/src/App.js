@@ -1,24 +1,41 @@
 // App.js
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import './App.css';
 
 function App() {
-  const [messages, setMessages] = useState([]);
+  const [messages, setMessages] = useState([{}]);
   const [userInput, setUserInput] = useState('');
 
   const addMessage = (role, content) => {
     setMessages(prevMessages => [...prevMessages, { role, content }]);
   };
 
-  const handleUserInput = () => {
+  const handleUserInput = async () =>{
     if (userInput.trim() === '') return;
 
     addMessage('user', userInput);
 
     // Simulate API call to get assistant's response (replace with actual logic)
-    const assistantResponse = 'Assistant response from simulated logic';
+    
+    try {
+      const response = await fetch('/get_response', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ user_input: userInput }) // Adjust the field name if needed
+      });
+  
+      const data = await response.json();
+      const assistantResponse = data.response;
+  
+      addMessage('assistant', assistantResponse);
+    } catch (error) {
+      console.error('Error:', error);
+    }
+    
 
-    addMessage('assistant', assistantResponse);
+    
 
     setUserInput('');
   };
