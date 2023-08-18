@@ -11,10 +11,10 @@ def initialize_custom_model():
         token = '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'
         model_config = transformers.AutoConfig.from_pretrained(
                                     model_id,
-                                            use_auth_token=token
+                                            use_auth_token=token,
                                                 )
         bnb_config = transformers.BitsAndBytesConfig(
-                        load_in_4bit=True,
+                load_in_4bit=True,
                                 bnb_4bit_quant_type='nf4',
                                         bnb_4bit_use_double_quant=True,
                                                 bnb_4bit_compute_dtype=bfloat16
@@ -41,7 +41,7 @@ pipe = transformers.pipeline(
     tokenizer=tokenizer,
     task='text-generation',
     return_full_text=True,
-    temperature=0.0,
+    temperature=3.0,
     max_new_tokens=512,
     repetition_penalty=1.1
 )
